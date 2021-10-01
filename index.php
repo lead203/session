@@ -5,29 +5,13 @@
 
 	require('lib/Session.php');
 
-	class Main {
-			
-		public $session;
+	$main = new Session;
 
-		public function __construct() {
-			$this->session = new Session;
-			$this->isLogin();
-		}
-
-		public function isLogin() {
-			if (!isset($_SESSION['login'])) {
-				require('layout_login.php');
-			} else {
-				header('Location: admin.php');
-			}
-		}
-
-		public function login($login, $password) {
-			$this->session->login($login, $password);
-		}
+	if ($main->isAuth()) {
+		header('Location: index.php');
+	} else {
+		require('layout_login.php');
 	}
-
-	$main = new Main();
 
 	if (!empty($_POST['login']) && !empty($_POST['password'])) {
 		$login = $_POST['login'];

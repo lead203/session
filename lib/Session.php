@@ -21,4 +21,12 @@
 			}
 		}
 
+		public function isAuth() {
+	        if (isset($_SESSION["login"])) { 
+	            return $_SESSION["login"]; 
+	        }
+	        else return false; 
+	    }
+     
+
 	}

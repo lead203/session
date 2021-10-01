@@ -5,9 +5,6 @@
 </head>
 <body>
 	<p>Hello <?=$login?></p>
-	<form>
-		<input type="hidden" name="action" value="logout">
-		<button>Logout</button>
-	</form>
+	<p><a href='?logout=true'>Выйти</a></p>
 </body>
 </html>

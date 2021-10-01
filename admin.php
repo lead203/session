@@ -8,20 +8,16 @@
 	$main = new Session;
 
 
-	if (isset($_SESSION['login'])) {
+	if ($main->isAuth()) {
 		$login = $_SESSION['login'];
 
-		if (isset($_POST)) {
-			if (isset($_GET['action'])) {
-				session_unset();
+		if (isset($_GET['logout'])) {
+			if ($_GET['logout'] == true) {
+				session_destroy();
 				header('Location: index.php');
 			}
-			
 		}
-
 		require('layout_admin.php');
-
-		
 	} else {
 		header('Location: index.php');
 	}
