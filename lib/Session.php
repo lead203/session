@@ -14,16 +14,16 @@
 			$this->login = $login;
 			$this->password = $password;
 
-			if ($login === 'login123' && $password === 'password123') {
+			if ($login === 'admin' && $password === '1') {
 				$_SESSION['login'] = $login;
-				
+
 				header('Location: admin.php');
 			}
 		}
 
 		public function isAuth() {
 	        if (isset($_SESSION["login"])) { 
-	            return $_SESSION["login"]; 
+	            return true; 
 	        }
 	        else return false; 
 	    }
